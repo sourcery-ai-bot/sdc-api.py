@@ -23,12 +23,12 @@ def convert_to_SdcGuildStatus(raw: _types.SdcRawGuildStatus):
 class Monitoring:
     def __init__(self, token: str):
         if not token.startswith("SDC "):
-            token = "SDC " + token
+            token = f"SDC {token}"
         self.SDC_token = token
         self.querier = Querier()
 
     async def fetch_guild_raw(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         response = await self.querier.execute_get_query(
             f"https://api.server-discord.com/v2/guild/{_id}",
@@ -58,7 +58,7 @@ class Monitoring:
         return SdcRawGuild
 
     async def get_guild(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         Raw = await self.fetch_guild_raw(_id)
         extension = "gif" if Raw.avatar.startswith("a_") else "png"
@@ -82,7 +82,7 @@ class Monitoring:
         return SdcGuild
 
     async def fetch_guild_place(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         response = await self.querier.execute_get_query(
             f"https://api.server-discord.com/v2/guild/{_id}/place",
@@ -98,7 +98,7 @@ class Monitoring:
         return SdcGuildPlace
 
     async def fetch_guild_rate_raw(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         response = await self.querier.execute_get_query(
             f"https://api.server-discord.com/v2/guild/{_id}/rated",
@@ -114,7 +114,7 @@ class Monitoring:
         return SdcRawGuildRates
 
     async def get_guild_rate(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         raw = await self.fetch_guild_rate_raw(_id)
         SdcGuildRates = _types.SdcGuildRates()
@@ -135,7 +135,7 @@ class Monitoring:
         return SdcGuildRates
 
     async def fetch_user_rate_raw(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         response = await self.querier.execute_get_query(
             f"https://api.server-discord.com/v2/guild/{_id}/rated",
@@ -151,7 +151,7 @@ class Monitoring:
         return SdcRawUserRates
 
     async def get_user_rate(self, _id: int):
-        _id = int(_id)
+        _id = _id
 
         raw = await self.fetch_user_rate_raw(_id)
         SdcUserRates = _types.SdcUserRates()

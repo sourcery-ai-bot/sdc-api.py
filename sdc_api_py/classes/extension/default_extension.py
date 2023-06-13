@@ -32,7 +32,7 @@ class Monitoring(commands.Cog):
                 status = data["status"]
                 if status is True:
                     if Global.logging_level:
-                        print(f"SDC: Статистика отправлена")
+                        print("SDC: Статистика отправлена")
                 else:
                     print(f"SDC: Произошла ошибка при отправке статистики: {data}")
 
@@ -40,9 +40,8 @@ class Monitoring(commands.Cog):
                 print(f"SDC: Произошла ошибка при отправке статистики: API временно недоступно. Повторное подключение через {Global.time}")
             except Exception as err:
                 print(f"SDC: Произошла неизвестная ошибка при отправке статистики: {err}")
-        else:
-            if Global.logging_level:
-                print("SDC: Количество серверов не изменилось. Отправка статистики пропущена")
+        elif Global.logging_level:
+            print("SDC: Количество серверов не изменилось. Отправка статистики пропущена")
 
 
 def setup(bot):

@@ -28,7 +28,7 @@ class Querier:
                 else:
                     try:
                         if await response.json()["error"]["type"] == "Unauthorized":
-                            print(f"SDC: Указан неверный ключ авторизации")
+                            print("SDC: Указан неверный ключ авторизации")
                     except:
                         pass
         finally:

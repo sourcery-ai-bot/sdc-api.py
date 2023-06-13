@@ -6,12 +6,12 @@ class NikaWarns:
 
     def __init__(self, token):
         if not token.startswith("SDC "):
-            token = "SDC " + token
+            token = f"SDC {token}"
         self.SDC_token = token
         self.querier = Querier()
 
     async def fetch_warns(self, _id:int):
-        _id = int(_id)
+        _id = _id
 
         response = await self.querier.execute_get_query(
             f"https://api.server-discord.com/v2/warns/{_id}",
